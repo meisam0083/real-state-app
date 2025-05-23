@@ -1,0 +1,99 @@
+:root {
+    --quantum-primary: #2a2e45;
+    --quantum-secondary: #4a90e2;
+    --quantum-accent: #ff6b6b;
+    --quantum-bg: #0f0f1f;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Vazir, sans-serif;
+}
+
+body {
+    background: var(--quantum-bg);
+    color: white;
+    min-height: 100vh;
+}
+
+.quantum-nav {
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15, 15, 31, 0.95);
+}
+
+.nav-btn {
+    background: var(--quantum-accent);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.page-container {
+    padding: 4rem 1rem 2rem;
+}
+
+.page {
+    display: none;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: quantumFadeIn 0.5s forwards;
+}
+
+.page.active {
+    display: block;
+}
+
+.quantum-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.quantum-header h1 {
+    font-size: 1.8rem;
+    background: linear-gradient(45deg, #4a90e2, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+#quantumMap {
+    height: 500px;
+    border-radius: 15px;
+    margin: 2rem 0;
+    border: 2px solid var(--quantum-secondary);
+}
+
+.quantum-btn {
+    background: var(--quantum-secondary);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.quantum-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+}
+
+@keyframes quantumFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
