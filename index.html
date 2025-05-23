@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سامانه ثبتی کوانتومی املاک</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <!-- سیستم ناوبری -->
+    <nav class="quantum-nav">
+        <button id="backBtn" class="nav-btn" onclick="QuantumUI.prevPage()" hidden>🔙 بازگشت</button>
+    </nav>
+
+    <!-- صفحات -->
+    <div class="page-container">
+        <!-- صفحه ثبت اطلاعات -->
+        <section class="page active" data-page="1">
+            <div class="quantum-header">
+                <h1>🌌 ثبت اطلاعات ملک کوانتومی</h1>
+            </div>
+            <div class="form-group">
+                <input type="text" id="propertyTitle" placeholder="عنوان ملک">
+                <input type="tel" id="ownerPhone" pattern="09\d{9}" placeholder="شماره موبایل">
+                <div id="phoneError" class="error-message"></div>
+            </div>
+            <button class="quantum-btn" onclick="QuantumUI.nextPage()">ادامه →</button>
+        </section>
+
+        <!-- صفحه نقشه -->
+        <section class="page" data-page="2">
+            <div class="quantum-header">
+                <h1>🗺️ موقعیت‌یابی فراکیهانی</h1>
+            </div>
+            <div class="grid-2col">
+                <input type="number" id="mainPlate" placeholder="پلاک اصلی" oninput="QuantumMap.update()">
+                <input type="number" id="subPlate" placeholder="پلاک فرعی" oninput="QuantumMap.update()">
+            </div>
+            <div id="quantumMap"></div>
+            <button class="quantum-btn" onclick="QuantumUI.nextPage()">تأیید نهایی</button>
+        </section>
+
+        <!-- صفحه پرداخت -->
+        <section class="page" data-page="3">
+            <div class="quantum-header">
+                <h1>⚡ پرداخت کوانتومی</h1>
+            </div>
+            <div class="payment-card">
+                <p class="price">مبلغ: <span>۱۴۹,۰۰۰</span> تومان</p>
+                <button class="quantum-btn" onclick="QuantumPayment.simulate()">پرداخت فوری</button>
+            </div>
+            <div id="paymentResult"></div>
+        </section>
+    </div>
+
+    <!-- اسکریپت‌ها -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="./scripts/app.js"></script>
+</body>
+</html>
